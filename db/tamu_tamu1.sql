@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Des 2023 pada 12.21
+-- Waktu pembuatan: 30 Des 2023 pada 13.29
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -62,8 +62,10 @@ CREATE TABLE `feedback` (
 --
 
 CREATE TABLE `tamu` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id` int(20) UNSIGNED NOT NULL,
   `nama_pengunjung` varchar(30) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `hp` varchar(25) NOT NULL,
   `keperluan` varchar(30) NOT NULL,
   `alamat` varchar(50) NOT NULL,
   `tgl_masuk` date NOT NULL,
@@ -76,8 +78,8 @@ CREATE TABLE `tamu` (
 -- Dumping data untuk tabel `tamu`
 --
 
-INSERT INTO `tamu` (`id`, `nama_pengunjung`, `keperluan`, `alamat`, `tgl_masuk`, `perihal`, `pengambilan`, `kendaraan`) VALUES
-(12, 'elsa', 'pasang baru', 'rantau', '2023-12-20', 'memasang  meteran baru untuk toko', 'meteran', 'scoopy (BL 4327 NAK)');
+INSERT INTO `tamu` (`id`, `nama_pengunjung`, `email`, `hp`, `keperluan`, `alamat`, `tgl_masuk`, `perihal`, `pengambilan`, `kendaraan`) VALUES
+(16, 'Budi', 'budi', '0821654436771212212', 'Hai1', 'Bukittinggi', '2020-12-31', 'hai1', 'hai1', 'hai1');
 
 -- --------------------------------------------------------
 
@@ -100,7 +102,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nama`, `username`, `paswd`, `email`, `level`, `ket`) VALUES
-(2, 'Fahrid Setiawan', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'fahrid@gmail.com', 1, 'Manager Ahli Program');
+(2, 'Fahrid Setiawan', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'fahrid@gmail.com', 1, 'Manager Ahli Program'),
+(6, '1', 'budi', '00dfc53ee86af02e742515cdcf075ed3', 'budi@gmail.com', 1, 'Admin');
 
 --
 -- Indexes for dumped tables
@@ -138,13 +141,13 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT untuk tabel `tamu`
 --
 ALTER TABLE `tamu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
