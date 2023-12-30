@@ -15,34 +15,30 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="nama_pengunjung" class="col-sm-3 control-label">Nama </label>
+                            <label for="nama_pengunjung" class="col-sm-3 control-label">Nama Tamu</label>
                             <div class="col-sm-9">
                                 <input type="text" name="nama_pengunjung" class="form-control" id="inputEmail3" placeholder="Inputkan Nama Pengunjung" required>
                             </div>
                         </div>
-                     
-
-                        <div class="form-group">
-                            <label for="no_telepon" class="col-sm-3 control-label">No Telepon</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="no_telepon" class="form-control" id="inputEmail3" placeholder="Inputkan no_telepon" required>
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <label for="email" class="col-sm-3 control-label">Email</label>
                             <div class="col-sm-9">
-                                <input type="text" name="email" class="form-control" id="inputEmail3" placeholder="Inputkan email" required>
+                                <input type="text" name="email" class="form-control" id="inputEmail3" placeholder="Inputkan Email" required>
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <label for="hp" class="col-sm-3 control-label">No Telp</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="hp" class="form-control" id="inputEmail3" placeholder="Inputkan No Telp" required>
+                            </div>
+                        </div>
+                        
                         <div class="form-group">
                             <label for="alamat" class="col-sm-3 control-label">Alamat</label>
                             <div class="col-sm-9">
                                 <input type="text" name="alamat" class="form-control" id="inputEmail3" placeholder="Inputkan Alamat" required>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label for="keperluan" class="col-sm-3 control-label">Keperluan</label>
                             <div class="col-sm-9">
@@ -50,7 +46,26 @@
                             </div>
                         </div>
 
-                       
+                        <div class="form-group">
+                            <label for="perihal" class="col-sm-3 control-label">Perihal</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="perihal" class="form-control" id="inputEmail3" placeholder="Inputkan Perihal" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="pengambilan" class="col-sm-3 control-label">Pengambilan Barang</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="pengambilan" class="form-control" id="inputEmail3" placeholder="Inputkan pengambilan barang" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="kendaraan" class="col-sm-3 control-label">Keterangan Kendaraan</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="kendaraan" class="form-control" id="inputEmail3" placeholder="Inputkan kendaraan" required>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
@@ -76,20 +91,26 @@
 <?php
 if ($_POST) {
     //Ambil data dari form
-    $namapengunjung = $_POST['nama_pengunjung'];
+    $nama_pengunjung = $_POST['nama_pengunjung'];
+    $email = $_POST['email'];
+    $hp = $_POST['hp'];
     $keperluan = $_POST['keperluan'];
     $alamat = $_POST['alamat'];
-    $tanggalmasuk = $_POST['tgl_masuk'];
-    $notelepon = $_POST['no_telepon'];
-    $email = $_POST['email'];
+    $tgl_masuk = $_POST['tgl_masuk'];
+    $perihal = $_POST['perihal'];
+    $pengambilan = $_POST['pengambilan'];
+    $kendaraan = $_POST['kendaraan'];
+
     //buat sql
-    $sql = "INSERT INTO tamu VALUES (NULL,'$namapengunjung','$keperluan','$alamat','$tanggalmasuk','$notelepon','$email')";
+    $sql = "INSERT INTO tamu (nama_pengunjung,email,hp,keperluan,alamat, tgl_masuk, perihal, pengambilan, kendaraan) 
+            VALUES ('$nama_pengunjung','$email','$hp','$keperluan','$alamat', '$tgl_masuk', '$perihal', '$pengambilan', '$kendaraan')";
+
     $query =  mysqli_query($koneksi, $sql) or die("SQL Simpan Tamu Error");
+
     if ($query) {
-        echo "<script>window.location.assign('?page=tamu&actions=tampil');</script>";
+        echo "<script>alert('Simpan Data Berhasil'); window.location.assign('?page=tamu&actions=tampil');</script>";
     } else {
-        echo "<script>alert('Simpan Data Gagal');<script>";
+        echo "<script>alert('Simpan Data Gagal');</script>";
     }
 }
-
 ?>

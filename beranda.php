@@ -21,6 +21,8 @@
                                 <th>No.</th>
                                 <th>Hari/Tanggal</th>
                                 <th>Nama Pelanggan</th>
+                                <th>Email</th>
+                                <th>No Telp</th>
                                 <th>Alamat Pelanggan</th>
                                 <th>Keperluan</th>
                                 <th>Pengambilan Barang</th>
@@ -46,6 +48,8 @@
                                     <td><?= $nomor ?></td>
                                     <td><?= $data['tgl_masuk'] ?></td>
                                     <td><?= $data['nama_pengunjung'] ?></td>
+                                    <td><?= $data['email'] ?></td>
+                                    <td><?= $data['hp'] ?></td>
                                     <td><?= $data['alamat'] ?></td>
                                     <td><?= $data['keperluan'] ?></td>
                                     <td><?= $data['pengambilan'] ?></td>

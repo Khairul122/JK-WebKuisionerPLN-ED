@@ -58,15 +58,15 @@ $data = mysqli_fetch_array($ambil);
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="no_telepon" class="col-sm-3 control-label">No Telpon</label>
+                            <label for="email" class="col-sm-3 control-label">Email</label>
                             <div class="col-sm-9">
-                                <input type="text" name="no_telepon" value="<?= $data['no_teleponl'] ?>" class="form-control" id="inputPassword3" placeholder="Inputkan no_telepon">
+                                <input type="text" name="email" value="<?= $data['email'] ?>" class="form-control" id="inputEmail3" placeholder="Email">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="email" class="col-sm-3 control-label">Email</label>
+                            <label for="hp" class="col-sm-3 control-label">No Telp</label>
                             <div class="col-sm-9">
-                                <input type="text" name="email" value="<?= $data['email'] ?>" class="form-control" id="inputPassword3" placeholder="Inputkan email">
+                                <input type="text" name="hp" value="<?= $data['hp'] ?>" class="form-control" id="inputEmail3" placeholder="No Telp">
                             </div>
                         </div>
                         <div class="form-group">
@@ -83,7 +83,24 @@ $data = mysqli_fetch_array($ambil);
                         </div>
 
 
-                       
+                        <div class="form-group">
+                            <label for="perihal" class="col-sm-3 control-label">Perihal</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="perihal" value="<?= $data['perihal'] ?>" class="form-control" id="inputPassword3" placeholder="Inputkan Perihal">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pengambilan" class="col-sm-3 control-label">Pengambilan Barang</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="pengambilan" value="<?= $data['pengambilan'] ?>" class="form-control" id="inputPassword3" placeholder="Inputkan Perihal">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="kendaraan" class="col-sm-3 control-label">Kendaraan</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="kendaraan" value="<?= $data['kendaraan'] ?>" class="form-control" id="inputPassword3" placeholder="Inputkan Perihal">
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <button type="submit" class="btn btn-success">
@@ -109,19 +126,24 @@ $data = mysqli_fetch_array($ambil);
 if ($_POST) {
     //Ambil data dari form
     $nama_pengunjung = $_POST['nama_pengunjung'];
+    $email = $_POST['email'];
+    $hp = $_POST['hp'];
     $keperluan = $_POST['keperluan'];
     $alamat = $_POST['alamat'];
-    $no_telepon= $_POST['no_telepon'];
-    $email = $_POST['email'];
+    $kendaraan = $_POST['kendaraan'];
+    $pengambilan = $_POST['pengambilan'];
     $tglmasuk = $_POST['tahun'] . "_" . $_POST['bulan'] . "_" . $_POST['tanggal'];
-    
+    $perihal = $_POST['perihal'];
     //buat sql
     $sql = "UPDATE tamu SET nama_pengunjung   ='$nama_pengunjung',
+    email   ='$email',
+    hp   ='$hp',
                            keperluan ='$keperluan',
                            alamat            ='$alamat',
                            tgl_masuk         ='$tglmasuk',
-                           no_telepon           ='$no_telepon',
-                           email         ='$email',                       
+                           perihal           ='$perihal',
+                           pengambilan         ='$pengambilan',
+                           kendaraan         ='$kendaraan'                         
                      WHERE id                ='$id'";
     $query =  mysqli_query($koneksi, $sql) or die("SQL Edit MHS Error");
     if ($query) {

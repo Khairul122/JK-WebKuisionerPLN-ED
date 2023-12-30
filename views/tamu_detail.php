@@ -28,7 +28,7 @@
                         </tr>
                         <tr>
                             <td>No Telepon</td>
-                            <td><?= $data['no_telepon'] ?></td>
+                            <td><?= $data['hp'] ?></td>
                         </tr>
                         <tr>
                             <td>Alamat</td>
